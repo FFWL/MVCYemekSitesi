@@ -1,0 +1,38 @@
+﻿@model List<RecipesWebSite.Models.Entity.User>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kullanıcı Bilgileri</h2>
+<br />
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Kullanıcı Adı</th>
+        <th>Kullanıcı Soyadı</th>
+        <th>Kullanıcı Nickname</th>
+        <th>Aktif/Pasif</th>
+        <th>Rütbe</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.UserName</td>
+            <td>@item.UserSurname</td>
+            <td>@item.UserNickname</td>
+            <td>@item.UserStatus.UserStatus1</td>
+            <td>@item.UserLevel.UserLevel1</td>
+            <td><a href="/Admin/Update/@item.UserID" class="btn btn-info">Güncelle</a></td>
+            <td><a href="/Admin/Remove/@item.UserID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<td><a href="/Admin/Add/" class="btn btn-danger">Kullanıcı Ekle</a></td>
+
+

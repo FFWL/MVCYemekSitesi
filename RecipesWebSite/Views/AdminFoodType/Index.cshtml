@@ -1,0 +1,33 @@
+﻿@model List<RecipesWebSite.Models.Entity.FoodType>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yemek Kategorileri Listesi</h2>
+<br />
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Yemek Türü</th>
+        <th>Resim</th>
+        <th>Aktif/Pasif</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.FoodType1</td>
+            <td><img style="width:150px; height:150px;" src="@item.FoodTypeImg" alt="bbq-pork-ribs" /></td>
+            <td>@item.FoodTypeStatus.FoodTypeStatus1</td>
+            <td><a href="/AdminFoodType/Update/@item.FoodTypeID" class="btn btn-info">Güncelle</a></td>
+            <td><a href="/AdminFoodType/Remove/@item.FoodTypeID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+</table>
+<td><a href="/AdminFood/Add/" class="btn btn-info">Yemek Ekle</a></td>
+

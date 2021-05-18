@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="71d0f52ec26341839bc6c84d3e7df1c1" Name="Diagram1">
+        <EntityTypeShape EntityType="DbRecipeWebSiteModel.FoodType" Width="1.5" PointX="2.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRecipeWebSiteModel.Ingridient" Width="1.5" PointX="7.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRecipeWebSiteModel.Recipe" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRecipeWebSiteModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRecipeWebSiteModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRecipeWebSiteModel.UserLevel" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbRecipeWebSiteModel.UserStatus" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="DbRecipeWebSiteModel.FK_Recipe_FoodType" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRecipeWebSiteModel.FK_Ingridient_Recipe" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRecipeWebSiteModel.FK_User_UserLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="DbRecipeWebSiteModel.FK_User_UserStatus" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbRecipeWebSiteModel.FoodTypeStatus" Width="1.5" PointX="0.75" PointY="8.5" />
+        <AssociationConnector Association="DbRecipeWebSiteModel.FK_FoodType_FoodTypeStatus" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

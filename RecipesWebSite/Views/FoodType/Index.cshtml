@@ -1,0 +1,27 @@
+﻿@model List<RecipesWebSite.Models.Entity.FoodType>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<section id="categories">
+
+    <div class="row wow zoomIn">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+                <div class="recipe-item text-center">
+                    <a href="/Recipe/Index/@item.FoodTypeID">
+                        <img src="@item.FoodTypeImg" alt="bbq-pork-ribs" />
+                    </a>
+                    <br />
+                    <h3>@item.FoodType1</h3>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+
+

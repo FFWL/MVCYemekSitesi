@@ -1,0 +1,32 @@
+﻿@model RecipesWebSite.Models.Entity.Recipe
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Tarif Ekle</h2>
+<form class="form-group" method="post">
+
+    <br />
+    @Html.Label("Tarif Adı")
+    @Html.TextBoxFor(x => x.RecipeName, new { @class = "form-control"})
+    <br />
+    <br />
+    @Html.Label("Tarif Resmi")
+    @Html.TextBoxFor(x => x.RecipeImg, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Tarif Açıklaması")
+    @Html.TextBoxFor(x => x.RecipeDescription, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("İçindekiler")
+    @Html.TextBoxFor(x => x.Ingridient.FirstOrDefault().Foodingridient, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yemek Kategori Statüsü")
+    @Html.DropDownListFor(c => c.FoodType.FoodType1, (IEnumerable<SelectListItem>)ViewData["foodtypes"], new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</form>
+

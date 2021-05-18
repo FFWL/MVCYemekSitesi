@@ -1,0 +1,25 @@
+﻿@model RecipesWebSite.Models.Entity.FoodType
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yemek Kategorisi Güncelle</h2>
+<form class="form-group" method="post">
+    <br />
+    @Html.Label("Yemek Kategori ID")
+    @Html.TextBoxFor(x => x.FoodTypeID, new { @class = "form-control", @readonly = true })
+    <br />
+    <br />
+    @Html.Label("Yemek Kategori Adı")
+    @Html.TextBoxFor(x => x.FoodType1, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Resim")
+    @Html.TextBoxFor(x => x.FoodTypeImg, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yemek Kategori Statüsü")
+    @Html.DropDownListFor(c => c.FoodTypeStatus.FoodTypeStatus1, (IEnumerable<SelectListItem>)ViewData["foodstatus"], new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</form>

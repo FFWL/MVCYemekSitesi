@@ -1,0 +1,38 @@
+﻿@model List<RecipesWebSite.Models.Entity.Recipe>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout2.cshtml";
+    }
+
+    <section id="items">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Recipes</h2>
+                </div>
+            </div>
+            <div class="row">
+                <!-- First recipe item -->
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+                        <div class="recipe-item text-center">
+                            <a href="recipe.html">
+                                <img src="@item.RecipeImg" alt="bbq-pork-ribs" style="width:250px; height:250px;" />
+                            </a>
+                            <br />
+                            <h3>@item.RecipeName</h3>
+                            <h1 style="font-size:15px;">@item.RecipeDescription</h1>
+                            <div class="col-12 text-center show-all">
+                                <div class="category-item text-center">
+                                    <a class="fa fa-cutlery fa-2x" style="background-color:transparent;" href="/Recipe/Details/@item.RecipeID">Detaylar</a>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            }
+                        </div>
+            </div>
+        </section>
+
+

@@ -1,0 +1,35 @@
+﻿@model RecipesWebSite.Models.Entity.User
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Kullanıcı Güncelle</h2>
+<form class="form-group" method="post">
+    <br />
+    @Html.Label("Kullanıcı ID")
+    @Html.TextBoxFor(x => x.UserID, new { @class = "form-control", @readonly = true })
+    <br />
+    <br />
+    @Html.Label("Kullanıcı Adı")
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kullanıcı Soyadı")
+    @Html.TextBoxFor(x => x.UserSurname, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.Label("Kullanıcı Nickname")
+    @Html.TextBoxFor(x => x.UserNickname, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kullanıcı Şifre")
+    @Html.TextBoxFor(x => x.UserPassword, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kullanıcı Aktif mi?")
+    @Html.DropDownListFor(c => c.UserStatus.UserStatus1, (IEnumerable<SelectListItem>)ViewData["status"], new { @class = "form-control" })
+    <br />
+    @Html.Label("Kullanıcı Seviyesi")
+    @Html.DropDownListFor(c => c.UserLevel.UserLevel1, (IEnumerable<SelectListItem>)ViewData["level"], new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</form>
+

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbRecipeWebSiteModelStoreContainer" CdmEntityContainer="DbRecipeWebSiteEntities1">
+    <EntitySetMapping Name="FoodType">
+      <EntityTypeMapping TypeName="DbRecipeWebSiteModel.FoodType">
+        <MappingFragment StoreEntitySet="FoodType">
+          <ScalarProperty Name="FoodTypeStatusID" ColumnName="FoodTypeStatusID" />
+          <ScalarProperty Name="FoodTypeID" ColumnName="FoodTypeID" />
+          <ScalarProperty Name="FoodType1" ColumnName="FoodType" />
+          <ScalarProperty Name="FoodTypeImg" ColumnName="FoodTypeImg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingridient">
+      <EntityTypeMapping TypeName="DbRecipeWebSiteModel.Ingridient">
+        <MappingFragment StoreEntitySet="Ingridient">
+          <ScalarProperty Name="IngridientsID" ColumnName="IngridientsID" />
+          <ScalarProperty Name="Foodingridient" ColumnName="Foodingridient" />
+          <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipe">
+      <EntityTypeMapping TypeName="DbRecipeWebSiteModel.Recipe">
+        <MappingFragment StoreEntitySet="Recipe">
+          <ScalarProperty Name="RecipeID" ColumnName="RecipeID" />
+          <ScalarProperty Name="RecipeName" ColumnName="RecipeName" />
+          <ScalarProperty Name="RecipeDescription" ColumnName="RecipeDescription" />
+          <ScalarProperty Name="RecipeImg" ColumnName="RecipeImg" />
+          <ScalarProperty Name="FoodTypeID" ColumnName="FoodTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DbRecipeWebSiteModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="DbRecipeWebSiteModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserNickname" ColumnName="UserNickname" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserSurname" ColumnName="UserSurname" />
+          <ScalarProperty Name="UserStatusID" ColumnName="UserStatusID" />
+          <ScalarProperty Name="UserLevelID" ColumnName="UserLevelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLevel">
+      <EntityTypeMapping TypeName="DbRecipeWebSiteModel.UserLevel">
+        <MappingFragment StoreEntitySet="UserLevel">
+          <ScalarProperty Name="UserLevelID" ColumnName="UserLevelID" />
+          <ScalarProperty Name="UserLevel1" ColumnName="UserLevel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserStatus">
+      <EntityTypeMapping TypeName="DbRecipeWebSiteModel.UserStatus">
+        <MappingFragment StoreEntitySet="UserStatus">
+          <ScalarProperty Name="UserStatusID" ColumnName="UserStatusID" />
+          <ScalarProperty Name="UserStatus1" ColumnName="UserStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodTypeStatus">
+      <EntityTypeMapping TypeName="DbRecipeWebSiteModel.FoodTypeStatus">
+        <MappingFragment StoreEntitySet="FoodTypeStatus">
+          <ScalarProperty Name="FoodTypeStatus1" ColumnName="FoodTypeStatus" />
+          <ScalarProperty Name="FoodTypeStatusID" ColumnName="FoodTypeStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

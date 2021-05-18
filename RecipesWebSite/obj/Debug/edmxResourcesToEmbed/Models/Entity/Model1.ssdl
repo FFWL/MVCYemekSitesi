@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbRecipeWebSiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FoodType">
+    <Key>
+      <PropertyRef Name="FoodTypeID" />
+    </Key>
+    <Property Name="FoodTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FoodType" Type="varchar" MaxLength="50" />
+    <Property Name="FoodTypeImg" Type="varchar" MaxLength="500" />
+    <Property Name="FoodTypeStatusID" Type="bit" />
+  </EntityType>
+  <EntityType Name="FoodTypeStatus">
+    <Key>
+      <PropertyRef Name="FoodTypeStatusID" />
+    </Key>
+    <Property Name="FoodTypeStatusID" Type="bit" Nullable="false" />
+    <Property Name="FoodTypeStatus" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Ingridient">
+    <Key>
+      <PropertyRef Name="IngridientsID" />
+    </Key>
+    <Property Name="IngridientsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Foodingridient" Type="varchar" MaxLength="500" />
+    <Property Name="RecipeID" Type="int" />
+  </EntityType>
+  <EntityType Name="Recipe">
+    <Key>
+      <PropertyRef Name="RecipeID" />
+    </Key>
+    <Property Name="RecipeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RecipeName" Type="varchar" MaxLength="30" />
+    <Property Name="RecipeDescription" Type="varchar" MaxLength="300" />
+    <Property Name="RecipeImg" Type="varchar" MaxLength="500" />
+    <Property Name="FoodTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="20" />
+    <Property Name="UserSurname" Type="varchar" MaxLength="20" />
+    <Property Name="UserStatusID" Type="bit" />
+    <Property Name="UserLevelID" Type="tinyint" />
+    <Property Name="UserNickname" Type="varchar" MaxLength="50" />
+    <Property Name="UserPassword" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="UserLevel">
+    <Key>
+      <PropertyRef Name="UserLevelID" />
+    </Key>
+    <Property Name="UserLevelID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserLevel" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="UserStatus">
+    <Key>
+      <PropertyRef Name="UserStatusID" />
+    </Key>
+    <Property Name="UserStatusID" Type="bit" Nullable="false" />
+    <Property Name="UserStatus" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_FoodType_FoodTypeStatus">
+    <End Role="FoodTypeStatus" Type="Self.FoodTypeStatus" Multiplicity="0..1" />
+    <End Role="FoodType" Type="Self.FoodType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodTypeStatus">
+        <PropertyRef Name="FoodTypeStatusID" />
+      </Principal>
+      <Dependent Role="FoodType">
+        <PropertyRef Name="FoodTypeStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingridient_Recipe">
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="0..1" />
+    <End Role="Ingridient" Type="Self.Ingridient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recipe">
+        <PropertyRef Name="RecipeID" />
+      </Principal>
+      <Dependent Role="Ingridient">
+        <PropertyRef Name="RecipeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Recipe_FoodType">
+    <End Role="FoodType" Type="Self.FoodType" Multiplicity="0..1" />
+    <End Role="Recipe" Type="Self.Recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodType">
+        <PropertyRef Name="FoodTypeID" />
+      </Principal>
+      <Dependent Role="Recipe">
+        <PropertyRef Name="FoodTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserLevel">
+    <End Role="UserLevel" Type="Self.UserLevel" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserLevel">
+        <PropertyRef Name="UserLevelID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserLevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserStatus">
+    <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserStatus">
+        <PropertyRef Name="UserStatusID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbRecipeWebSiteModelStoreContainer">
+    <EntitySet Name="FoodType" EntityType="Self.FoodType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FoodTypeStatus" EntityType="Self.FoodTypeStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingridient" EntityType="Self.Ingridient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recipe" EntityType="Self.Recipe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLevel" EntityType="Self.UserLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_FoodType_FoodTypeStatus" Association="Self.FK_FoodType_FoodTypeStatus">
+      <End Role="FoodTypeStatus" EntitySet="FoodTypeStatus" />
+      <End Role="FoodType" EntitySet="FoodType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingridient_Recipe" Association="Self.FK_Ingridient_Recipe">
+      <End Role="Recipe" EntitySet="Recipe" />
+      <End Role="Ingridient" EntitySet="Ingridient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Recipe_FoodType" Association="Self.FK_Recipe_FoodType">
+      <End Role="FoodType" EntitySet="FoodType" />
+      <End Role="Recipe" EntitySet="Recipe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserLevel" Association="Self.FK_User_UserLevel">
+      <End Role="UserLevel" EntitySet="UserLevel" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserStatus" Association="Self.FK_User_UserStatus">
+      <End Role="UserStatus" EntitySet="UserStatus" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
